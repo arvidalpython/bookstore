@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from product.models.product import Product
 from django.conf import settings
 
+
 class Order(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,

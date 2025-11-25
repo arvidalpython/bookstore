@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'api',
     'rest_framework',
-    'rest_framework.authtoken',
+    'api',
     'product',
     'order',
+    'rest_framework.authtoken',
     'django_extensions',
 ]
 
@@ -116,9 +116,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-# AUTH_USER_MODEL = 'api.User'
+AUTH_USER_MODEL = 'api.User'
 
-AUTH_USER_MODEL = 'auth.User'
+# AUTH_USER_MODEL = 'auth.User'
 
 
 # Static files (CSS, JavaScript, Images)
