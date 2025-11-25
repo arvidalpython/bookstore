@@ -4,11 +4,8 @@ from product.models.product import Product
 from django.conf import settings
 
 class Order(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ManyToManyField(Product, blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     total = models.DecimalField(max_digits=10, decimal_places=2)
 
