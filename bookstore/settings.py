@@ -118,6 +118,8 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'api.User'
 
+AUTH_USER_MODEL = 'auth.User'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
