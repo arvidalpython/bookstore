@@ -1,4 +1,7 @@
+from rest_framework import serializers
+from core.models import Order
 from product.serializers.product_serializer import ProductSerializer
+
 
 class OrderSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True, many=True)
