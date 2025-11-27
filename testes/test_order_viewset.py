@@ -16,7 +16,9 @@ class TestOrderViewSet(APITestCase):
 
     def setUp(self):
         self.category = CategoryFactory(title='technology')
-        self.product = ProductFactory(title='mouse', price=100, category=[self.category])
+        # Removida essa linha feita pelo professor, porém o Deepseek informa que está errada
+        # self.product = ProductFactory(title='mouse', price=100, category=[self.category])
+        self.product = ProductFactory(title='mouse', price=100)
         self.order = OrderFactory(product=[self.product])
 
     def test_order(self):

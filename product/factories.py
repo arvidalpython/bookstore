@@ -1,7 +1,6 @@
 import factory
-
-from product.models import Product
-from product.models import Category
+from product.models.product import Product
+from product.models.category import Category
 
 class CategoryFactory(factory.django.DjangoModelFactory):
     title = factory.Faker('pystr')
@@ -14,7 +13,8 @@ class CategoryFactory(factory.django.DjangoModelFactory):
 
 class ProductFactory(factory.django.DjangoModelFactory):
     price = factory.Faker('pyint')
-    category = factory.LazyAttribute(CategoryFactory)
+    # category = factory.LazyAttribute(CategoryFactory)
+    category = factory.SubFactory(CategoryFactory)
     title = factory.Faker('pystr')
 
     @factory.post_generation

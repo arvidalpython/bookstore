@@ -1,4 +1,4 @@
-from EBAC.bookstore.api.models import Product
+from product.models.product import Product
 from rest_framework import serializers
 from order.models.order import Order
 from product.serializers.product_serializer import ProductSerializer

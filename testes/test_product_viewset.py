@@ -1,10 +1,11 @@
 from rest_framework.views import status
+from rest_framework.test import APITestCase,APIClient
 
 from django.urls import reverse
 
 from product.factories import CategoryFactory, ProductFactory
 from order.factories import UserFactory
-from product.models import Product
+from product.models.product import Product
 
 class TestProductViewSet(APITestCase):
     client = APIClient()
@@ -22,12 +23,12 @@ class TestProductViewSet(APITestCase):
             reverse('product-list', kwargs={'version': 'v1'})
     )
 
-    self.assertEqual(response.status_code, status.HTTP_200_0K)
-    product_data = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_0K)
+        product_data = json.loads(response.content)
 
-    self.assertEqual(product_data[0]['title'], self.product.title)
-    self.assertEqual(product_data[0]['price'], self.product.price)
-    self.assertEqual(product_data[0]['active'], self.product.active)
+        self.assertEqual(product_data[0]['title'], self.product.title)
+        self.assertEqual(product_data[0]['price'], self.product.price)
+        self.assertEqual(product_data[0]['active'], self.product.active)
 
     def test_create_product(self):
         category = CategoryFactory()
